@@ -1,0 +1,69 @@
+---
+import PostDetails from './PostDetails.astro';
+import type { BlurPostCardProps as PostCardProps } from '.';
+import { twMerge } from 'tailwind-merge';
+import Image from '../Image';
+export type BlurPostCardProps = Omit<PostCardProps, 'variant'>;
+export type Props = BlurPostCardProps;
+const {
+  class: className,
+  title,
+  excerpt,
+  url,
+  image,
+  imagePosition = 'left',
+  tags,
+  category,
+  date,
+  wordCount,
+  readingTime,
+  ...rest
+} = Astro.props;
+---
+
+<div class={twMerge(
+  'relative md:h-[14.5rem] rounded-xl flex flex-col md:flex-row flex-nowrap overflow-hidden',
+  'bg-[#0b0f19]',
+  className
+)} {...rest}>
+  {image && (
+    <Image src={image} alt='cover' class={twMerge(
+      'absolute brightness-[0.8] md:brightness-[0.7]',
+      'w-full h-full',
+      'scale-y-[200%] md:scale-y-100 origin-bottom md:origin-center',
+    )} inferSize onlyBlur />
+    <a class={twMerge(
+      'z-10 flex-none w-full h-40 overflow-hidden select-none md:order-none md:h-full md:w-72 md:shrink',
+      imagePosition === 'left' ? 'clip-left' : 'clip-right'
+    )} href={url} aria-label='cover' tabindex="-1">
+      <Image src={image} alt='cover' inferSize class='h-full w-full scale-[1.025]' />
+    </a>
+  )}
+  <PostDetails
+    class={twMerge(
+      'z-10 flex-auto text-gray-100',
+      imagePosition === 'left' ? 'md:order-last' : 'md:order-first'
+    )}
+    title={title}
+    excerpt={excerpt}
+    url={url}
+    date={date}
+    wordCount={wordCount}
+    readingTime={readingTime}
+    tags={tags}
+    category={category}
+    shadow
+  />
+</div>
+
+
+<style>
+@screen md {
+  .clip-left {
+    clip-path: polygon(0 0, 100% 0%, 94% 100%, 0% 100%);
+  }
+  .clip-right {
+    clip-path: polygon(6% 0, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+</style>

@@ -1,0 +1,82 @@
+---
+import BlurHash from './BlurHash';
+import { getImage  } from 'astro:assets';
+import { DEV, FS_PREFIX } from '@/constants';
+import { imageToHashBase64 } from './converter';
+import { twMerge } from 'tailwind-merge';
+import type { RemoteImageProps as AstroRemoteImageProps, LocalImageProps as AstroLocalImageProps } from 'astro:assets';
+import type { HTMLAttributes } from 'astro/types';
+import { fileURLToPath } from 'node:url';
+// hack method to get the assetsDir, this member is not exported by astro:assets but is used internally
+import { assetsDir } from 'astro:assets';
+
+type ExtraProps = {
+  src: string | ImageMetadata | Promise<{default: ImageMetadata}>;
+  alt?: string;
+  inferSize?: boolean;
+  onlyBlur?: boolean;
+};
+type LocalImageProps = Omit<AstroLocalImageProps, keyof ExtraProps> & ExtraProps;
+type RemoteImageProps = Omit<AstroRemoteImageProps, keyof ExtraProps> & ExtraProps;
+export type Props = LocalImageProps | RemoteImageProps;
+const {
+  src,
+  class: className,
+  onlyBlur = false,
+  ...rest
+} = Astro.props;
+
+function isESMImportedImage(src: any): src is ImageMetadata |  Promise<{default: ImageMetadata}> {
+  return typeof src === "object";
+}
+
+const image = await getImage({
+  src,
+  ...rest,
+})
+
+const additionalAttributes: HTMLAttributes<'img'> = {};
+if (image.srcSet.values.length > 0) {
+  additionalAttributes.srcset = image.srcSet.attribute;
+}
+
+let blurhash: string | undefined = undefined;
+if (image.options.format !== 'svg' && isESMImportedImage(src)) {
+  const resolvedSrc = 'then' in src ? (await src).default : src;
+  const filePath = DEV
+		? new RegExp(`^${FS_PREFIX}([^?#]*)`).exec(resolvedSrc.src)?.[1] ?? ''
+		: fileURLToPath(new URL('.' + resolvedSrc.src, assetsDir));
+  blurhash = await imageToHashBase64(filePath);
+}
+---
+{onlyBlur ? (
+  blurhash ? (
+    <BlurHash
+      className={className ?? undefined}
+      src={image.src}
+      blurhash={blurhash}
+      fadeOut={false}
+      client:load
+    />
+  ) : (
+    <div class={className}>
+      <img src={image.src} class='h-full w-full object-cover blur-xl scale-125' {...additionalAttributes} {...image.attributes} />
+    </div>
+  )
+) : (
+  <div class={twMerge(
+    "relative inline-block overflow-hidden",
+    className
+  )}>
+    {<img src={image.src} class="w-full h-full object-cover" {...additionalAttributes} {...image.attributes} />}
+    {blurhash && (
+      <BlurHash
+        className="absolute inset-0"
+        src={image.src}
+        blurhash={blurhash}
+        client:load
+      />
+    )}
+  </div>
+)}
+

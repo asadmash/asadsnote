@@ -1,0 +1,23 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Category from '@/components/Category';
+import getCategories from '@/utils/getCategories';
+import type { Page } from '@/types';
+
+const categories = (await getCategories()).sort((a, b) => b.count - a.count);
+
+const page: Page = {
+  type: 'categories',
+  title: 'Categories',
+  categories,
+}
+---
+
+<PageLayout page={page} hasSidebar={false}>
+  <div class="flex flex-wrap gap-2 my-6 md:my-14">
+    {categories.map(category => <Category onlyText className='min-w-0 plate-bg plate-shadow border-highlight leading-4 rounded-md hover:bg-primary-500 hover:text-white' category={{
+      label: `${category.label} ${category.count}`,
+      url: category.url,
+    }} />)}
+  </div>
+</PageLayout>

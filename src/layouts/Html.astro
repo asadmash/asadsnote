@@ -1,0 +1,91 @@
+---
+export interface Props {
+  title?: string;
+  favicon?: string;
+  description?: string;
+  author?: string;
+  generator?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description,
+  favicon,
+  author,
+  generator,
+  canonical = decodeURI(Astro.url.href)
+} = Astro.props;
+import "@fontsource-variable/inter";
+import "@fontsource-variable/fira-code";
+import "@/styles/global.css";
+// import "/styles/ch-style.css"
+
+import { ViewTransitions } from "astro:transitions";
+import ProgressBar from "@/components/ProgressBar";
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href={favicon} />
+    {title && <title>{title}</title>}
+    {description && <meta name="description" content={description} />}
+    {author && <meta name="author" content={author} />}
+    {generator && <meta name="generator" content={generator} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    <script is:inline>
+      (function() {
+        const storedTheme = JSON.parse(window.localStorage.getItem('theme') ?? '"auto"');
+        let presetTheme;
+        if (storedTheme === 'auto') {
+          presetTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+          presetTheme = storedTheme;
+        }
+        if (presetTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      })()
+    </script>
+    <ViewTransitions />
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <noscript>
+      <div class="pt-16 text-center font-bold text-xl" >Enable JavaScript to run this website.</div>
+    </noscript>
+    <slot />
+    <ProgressBar client:load transition:persist="progress-bar" />
+  </body>
+</html>
+
+<script>
+  // prevent flash when using view transitions in astro
+  const setDarkMode = () => {
+    const storedTheme = JSON.parse(window.localStorage.getItem('theme') ?? '"auto"');
+    let presetTheme;
+    if (storedTheme === 'auto') {
+      presetTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    } else {
+      presetTheme = storedTheme;
+    }
+    if (presetTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
+    }
+  };
+
+  // Runs on initial navigation
+  setDarkMode();
+  // Runs on view transitions navigation
+  document.addEventListener('astro:after-swap', setDarkMode);
+</script>

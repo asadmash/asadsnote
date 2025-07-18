@@ -1,0 +1,31 @@
+---
+import { twMerge } from 'tailwind-merge';
+import type { ImageMetadata } from 'astro';
+import Image from '../Image';
+interface BlurredBackdropProps {
+  class?: string;
+  image: string | ImageMetadata | Promise<{default: ImageMetadata}>;
+  blur?: number;
+  saturate?: number;
+  height?: number;
+  width?: number;
+}
+export type Props = BlurredBackdropProps;
+const {
+  class: className,
+  image,
+  blur = 180,
+  saturate = 1.5,
+  ...rest
+} = Astro.props;
+
+---
+<div class={twMerge(
+  'opacity-50 dark:opacity-70 overflow-hidden select-none',
+  className,
+)} style={{
+  filter: `blur(${blur}px) saturate(${saturate})`,
+  ...rest,
+}}>
+  <Image src={image} inferSize alt='backdrop' class='object-fill h-full w-full' role='none' loading='eager' />
+</div>

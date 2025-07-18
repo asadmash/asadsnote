@@ -1,0 +1,61 @@
+---
+import type { GetStaticPaths, Page as AstroPage } from 'astro';
+import PageLayout from '@/layouts/PageLayout.astro';
+import PostCard from '@/components/PostCard';
+import getPosts from '@/utils/getPosts';
+import { compareDesc } from 'date-fns';
+import type { Page, Post } from '@/types';
+import { createPaginator } from '@/utils/createPaginator';
+import config from '@/config';
+
+export interface Props {
+  page: AstroPage<Omit<Post, 'Content'>>;
+}
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = (await getPosts()).filter(post => !post.draft).sort((a, b) => compareDesc(a.date, b.date));
+  return paginate(allPosts, {
+    pageSize: config.pagination === false ? Infinity : config.pagination?.pageSize,
+  }).map(item => ({
+    params: {
+      // page is undefined for the first page when using rest parameter in filename
+      page: item.params.page ? `page/${item.params.page}` : undefined
+    },
+    props: item.props,
+  }));
+}) satisfies GetStaticPaths;
+
+const { page }= Astro.props;
+
+const pageConfig: Page = {
+  type: 'index',
+  title: config.title,
+  description: config.description,
+  posts: page.data,
+  paginator: createPaginator(page, {
+    includesFirstPageNumber: true,
+  })
+}
+---
+
+<PageLayout page={pageConfig}>
+  <div class='flex flex-col gap-y-4 md:gap-y-6'>
+    {
+      page.data.map((post, index) => {
+        return <PostCard
+          title={post.title} 
+          excerpt={post.excerpt}
+          image={post.image}
+          date={post.date}
+          url={post.url}
+          wordCount={post.wordCount}
+          readingTime={post.readingTime && Math.ceil(post.readingTime)}
+          tags={post.tags}
+          category={post.category}
+          variant={post.cardVariant}
+          imagePosition={index%2==0?'left':'right'}
+        ></PostCard>
+      })
+    }
+  </div>
+</PageLayout>

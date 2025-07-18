@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import promo from '../../assets/hero-bg.jpg';
+---
+<div class="relative rounded-lg overflow-hidden shadow-lg">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-tr from-primary-500 to-secondary-500"></div>
+  <a class="relative block rounded-[0.4375rem] m-px p-4 bg-gray-50 dark:bg-gray-950" href="https://github.com/asadmash" target="_blank">
+    <Image src={promo} width={300} alt="recomended" class="absolute w-full h-full inset-0 object-cover opacity-30 select-none" />
+    <div class="relative z-10">
+      <span class="font-bold text-lg">
+        Promos
+        <span class="bg-clip-text text-transparent bg-gradient-to-tr from-primary-500 to-secondary-500 font-black">
+          <!-- Ads -->
+        </span>
+        <br>
+        <!-- promotional content goes here -->
+      </span>
+      <br>
+      <span class="text-sm *:align-middle">
+        <span>link</span>
+        <Icon name='tabler:brand-github' is:inline class="inline"/>
+        <span>icon</span>
+        <Icon name='tabler:arrow-right' is:inline class="inline"/>
+      </span>
+    </div>
+  </a>
+</div>

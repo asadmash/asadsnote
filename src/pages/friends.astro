@@ -1,0 +1,37 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import type { Page } from '@/types';
+import Friend from '@/components/Friend';
+import { getCollection } from 'astro:content';
+import { FRIENDS_COLLECTION_NAME } from '@/constants';
+const page: Page = {
+  title: 'Friendly Links',
+  description: 'The flower path has never been swept for guests, the door is now open for you',
+  image: import('src/assets/friends-bg.jpg'),
+}
+const friendEntries = await getCollection(FRIENDS_COLLECTION_NAME);
+---
+<PageLayout 
+  page={page} 
+  hasFooter={true}
+  hasHero={true}
+  hasNavbar={true}
+  hasComment={true} 
+  hasSidebar={false}
+>
+  <section class="mb-6 not-prose">
+    <h2 class="text-xl font-bold mb-3">My friend</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {friendEntries.map(entry => (
+        <Friend {...entry.data} />
+      ))}
+    </div>
+  </section>
+  <section class="prose dark:prose-invert dark:prose-dark plate-bg border-highlight p-4 md:p-8 rounded-xl">
+    <p>Although the establishment of the small site is not for the purpose of dissemination, we still welcome like-minded friends. If you want to apply for a friend link, there are two ways:</p>
+    <ol>
+      <li>Leave a message below this article, leaving your name, website, description, avatar link, theme color, font color;</li>
+      
+    </ol>
+  </section>
+</PageLayout>
