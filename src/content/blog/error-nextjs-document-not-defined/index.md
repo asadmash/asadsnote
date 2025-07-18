@@ -4,7 +4,7 @@ date: 2025-07-18
 # updateDate: 2023-12-28
 tags: [NextJS, Server]
 category: [Programming, Error]
-image: ./cover.png
+image: ./cover.webp
 ---
 
 
