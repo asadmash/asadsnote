@@ -16,8 +16,8 @@ export default function PostMeta({
     /* make sure that prerendered html isn't afftected by timezone */
     date && <Tooltip content={
       <div>
-        {date && <div><IconCalendarFill className='inline mr-1' />发布于：<DateTime date={date} /></div>}
-        {updateDate && <div><IconEdit className='inline mr-1' />修改于：<DateTime date={updateDate} /></div>}
+        {date && <div><IconCalendarFill className='inline mr-1' />Published on : <DateTime date={date} /></div>}
+        {updateDate && <div><IconEdit className='inline mr-1' />Updated on : <DateTime date={updateDate} /></div>}
       </div>
     }>
       <div {...rest}>
