@@ -1,8 +1,8 @@
 {
-  "name": "Wider",
+  "name": "mash",
   "description": "programmer",
   "link": "https://asadmash.vercel.app",
-  "avatar": "/assets/avatar.png",
+  "avatar": "./../../assets/myImg.png",
   "bgColor": "#8574D3",
   "textColor": "#fff"
 }
