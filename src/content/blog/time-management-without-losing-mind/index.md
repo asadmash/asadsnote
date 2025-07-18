@@ -1,5 +1,5 @@
 ---
-title: How I’m Learning to Manage My Time Without Losing My Mind
+title: Learning to Manage Time Without Losing Mind
 date: 2025-07-18T16:00:00Z
 # updateDate: 2023-12-28
 tags: [Timemanagement, TaskManagement]

@@ -1,5 +1,5 @@
 ---
-title: How to fix “document is not defined” in Next.js
+title: fix “document is not defined” in Next.js
 date: 2025-07-18
 # updateDate: 2023-12-28
 tags: [NextJS, Server]
