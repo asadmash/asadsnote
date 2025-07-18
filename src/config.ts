@@ -73,7 +73,7 @@ const config: Config = {
         name: 'profile',
         author: 'Asad M.',
         description: 'Front-end Developer',
-        avatar: import('src/assets/myImg.png'),
+        avatar: import('src/assets/myImg.webp'),
         background: import('src/assets/profile-bg.jpg'),
         socialIcons: [
           {
