@@ -39,7 +39,8 @@ logs
 .astro
 stats.html
 
-_drafts
+/src/content/blog/drafts/
+
 
 #changelog
 
