@@ -153,7 +153,7 @@ const config: Config = {
       repoId: 'R_kgDOPOxLNA',
       category: 'General',
       categoryId: 'DIC_kwDOPOxLNM4CtJgq',
-      mapping: 'pathname',
+      mapping: 'url',
       reactionsEnabled: '1',
       emitMetadata: '0',
       inputPosition: 'top',
@@ -161,7 +161,7 @@ const config: Config = {
     },
     // provider: 'giscus',
     // options: {
-    //   repo: 'asadmash/asadsnote.github.io',
+    //   repo: 'izmttk/izmttk.github.io',
     //   repoId: 'R_kgDOJIxtIQ',
     //   category: 'General',
     //   categoryId: 'DIC_kwDOJIxtIc4CU1cl',
@@ -169,7 +169,7 @@ const config: Config = {
     //   reactionsEnabled: '1',
     //   emitMetadata: '0',
     //   inputPosition: 'top',
-    //   lang: 'en-US',
+    //   lang: 'zh-CN',
     // },
     
     // provider: 'waline',
