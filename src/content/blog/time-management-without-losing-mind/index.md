@@ -2,7 +2,7 @@
 title: Learning to Manage Time Without Losing Mind
 date: 2025-07-18T16:00:00Z
 # updateDate: 2023-12-28
-tags: [Timemanagement, TaskManagement]
+tags: [TimeManagement, TaskManagement]
 category: [Productivity, Time management]
 image: ./cover.jpg
 ---
