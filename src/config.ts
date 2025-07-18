@@ -149,7 +149,7 @@ const config: Config = {
   comment: {
     provider: 'giscus',
     options: {
-      repo: 'asadmash/asadsnote.github.io',
+      repo: 'asadmash/asadsnote',
       repoId: 'R_kgDOPOxLNA',
       category: 'General',
       categoryId: 'DIC_kwDOPOxLNM4CtJgq',
