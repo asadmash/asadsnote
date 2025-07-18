@@ -158,6 +158,9 @@ const config: Config = {
       emitMetadata: '0',
       inputPosition: 'top',
       lang: 'en-US',
+      strict:'0',
+      theme: "preferred_color_scheme",
+
     },
     // provider: 'giscus',
     // options: {
