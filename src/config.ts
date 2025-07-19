@@ -94,7 +94,7 @@ const config: Config = {
           //   icon: 'tabler:brand-netease-music',
           //   url: 'https://music.163.com/user/390631653'
           // },
-          // {
+          // {giscus
           //   label: 'twitter',
           //   color: '#1d9bf0',
           //   icon: 'tabler:brand-twitter',
@@ -147,33 +147,33 @@ const config: Config = {
     }
   },
   comment: {
-    provider: 'giscus',
-    options: {
-      repo: 'asadmash/asadsnote',
-      repoId: 'R_kgDOPOxLNA',
-      category: 'General',
-      categoryId: 'DIC_kwDOPOxLNM4CtJgq',
-      mapping: 'pathname',
-      reactionsEnabled: '1',
-      emitMetadata: '0',
-      inputPosition: 'top',
-      lang: 'en-US',
-      strict:'0',
-      theme: "preferred_color_scheme",
-
-    },
     // provider: 'giscus',
     // options: {
-    //   repo: 'izmttk/izmttk.github.io',
-    //   repoId: 'R_kgDOJIxtIQ',
+    //   repo: 'asadmash/asadsnote',
+    //   repoId: 'R_kgDOPOxLNA',
     //   category: 'General',
-    //   categoryId: 'DIC_kwDOJIxtIc4CU1cl',
+    //   categoryId: 'DIC_kwDOPOxLNM4CtJgq',
     //   mapping: 'pathname',
     //   reactionsEnabled: '1',
     //   emitMetadata: '0',
     //   inputPosition: 'top',
-    //   lang: 'zh-CN',
+    //   lang: 'en-US',
+    //   // strict:'0',
+    //   // theme: "preferred_color_scheme",
+
     // },
+    provider: 'giscus',
+    options: {
+      repo: 'izmttk/izmttk.github.io',
+      repoId: 'R_kgDOJIxtIQ',
+      category: 'General',
+      categoryId: 'DIC_kwDOJIxtIc4CU1cl',
+      mapping: 'pathname',
+      reactionsEnabled: '1',
+      emitMetadata: '0',
+      inputPosition: 'top',
+      lang: 'zh-CN',
+    },
     
     // provider: 'waline',
     // options: {
