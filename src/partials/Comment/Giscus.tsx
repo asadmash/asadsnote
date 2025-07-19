@@ -41,11 +41,12 @@ export interface GiscusOptions extends Omit<GiscusComponentProps, 'id'> {}
 
 export default function Giscus(props: GiscusOptions) {
   const { colorMode } = useTheme();
+  const baseUrl = window.location.origin; // this ensures your own domain
 
   const themeUrl =
     colorMode === 'dark'
-      ? `${BASE_URL}/assets/giscus-tailwind-dark.css`
-      : `${BASE_URL}/assets/giscus-tailwind-light.css`;
+      ? `${baseUrl}/assets/giscus-tailwind-dark.css`
+      : `${baseUrl}/assets/giscus-tailwind-light.css`;
 
   return (
     <GiscusComponent
@@ -60,6 +61,7 @@ export default function Giscus(props: GiscusOptions) {
       emitMetadata="0"
       inputPosition="bottom"
       theme={themeUrl}
+      // theme="/assets/giscus-tailwind-light.css"
       lang="en"
     />
   );
