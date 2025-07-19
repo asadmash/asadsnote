@@ -147,33 +147,33 @@ const config: Config = {
     }
   },
   comment: {
+    provider: 'giscus',
+    options: {
+      repo: 'asadmash/asadsnote.github.io',
+      repoId: 'R_kgDOPPGwqQ',
+      category: 'General',
+      categoryId: 'DIC_kwDOPPGwqc4CtKwf',
+      mapping: 'pathname',
+      reactionsEnabled: '1',
+      emitMetadata: '0',
+      inputPosition: 'bottom',
+      lang: 'en-US',
+      // strict:'0',
+      // theme: "preferred_color_scheme",
+
+    },
     // provider: 'giscus',
     // options: {
-    //   repo: 'asadmash/asadsnote',
-    //   repoId: 'R_kgDOPOxLNA',
+    //   repo: 'izmttk/izmttk.github.io',
+    //   repoId: 'R_kgDOJIxtIQ',
     //   category: 'General',
-    //   categoryId: 'DIC_kwDOPOxLNM4CtJgq',
+    //   categoryId: 'DIC_kwDOJIxtIc4CU1cl',
     //   mapping: 'pathname',
     //   reactionsEnabled: '1',
     //   emitMetadata: '0',
     //   inputPosition: 'top',
-    //   lang: 'en-US',
-    //   // strict:'0',
-    //   // theme: "preferred_color_scheme",
-
+    //   lang: 'zh-CN',
     // },
-    provider: 'giscus',
-    options: {
-      repo: 'izmttk/izmttk.github.io',
-      repoId: 'R_kgDOJIxtIQ',
-      category: 'General',
-      categoryId: 'DIC_kwDOJIxtIc4CU1cl',
-      mapping: 'pathname',
-      reactionsEnabled: '1',
-      emitMetadata: '0',
-      inputPosition: 'top',
-      lang: 'zh-CN',
-    },
     
     // provider: 'waline',
     // options: {
