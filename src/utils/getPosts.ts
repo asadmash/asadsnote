@@ -58,6 +58,7 @@ async function getPosts(): Promise<Post[]> {
     const author = (await getEntry(post.data.author)).data ?? {name: config.author};
     const date = post.data.date ?? getFileCreateTime(getPostPath(post.id));
     const updateDate = post.data.updateDate ?? getFileUpdateTime(getPostPath(post.id));
+   
     return {
       slug: post.data.permalink ?? post.slug,
       title: post.data.title ?? '无标题',
@@ -67,6 +68,7 @@ async function getPosts(): Promise<Post[]> {
       date: post.data.date ?? date,
       updateDate: post.data.updateDate ?? updateDate,
       draft: post.data.draft,
+      
       category: {
         ...transformCategory(post.data.category),
         count: categoriesBucket.get(post.data.category.join('/')) ?? 1

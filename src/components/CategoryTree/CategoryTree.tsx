@@ -116,7 +116,7 @@ function renderSubtree(tree: InternalTreeNode, expandDepth: number, depth: numbe
         ) : tree.label
       }
       icon={<IconFolderFill width={15} height={15} />}
-      endIcon={<div className='text-xs px-1'>{tree.count} Articles</div>}
+      endIcon={<div className='text-xs px-1'>{tree.count} </div>}
       defaultExpanded={depth <= expandDepth}
       key={tree.label}
     >
@@ -133,7 +133,7 @@ function renderSubtree(tree: InternalTreeNode, expandDepth: number, depth: numbe
                 </a>
               }
               icon={<IconGridFill width={15} height={15} />}
-              endIcon={<div className='text-xs px-1'>{child.count} Articles</div>}
+              endIcon={<div className='text-xs px-1'>{child.count}</div>}
               key={child.label}
             />
           )
@@ -175,7 +175,7 @@ export default function CategoryTree({
                     </a>
                   }
                   icon={<IconGridFill width={15} height={15} />}
-                  endIcon={<div className='text-xs px-1'>{child.count} Articles</div>}
+                  endIcon={<div className='text-xs px-1'>{child.count}</div>}
                   key={child.label}
                 />
               )
