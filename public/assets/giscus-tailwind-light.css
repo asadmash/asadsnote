@@ -1,4 +1,20 @@
 main {
+
+ --color-fg-default: #1f2937;
+  --color-fg-muted: #374151;
+  --color-fg-subtle: #6b7280;
+
+  --color-btn-text: #1f2937;
+  --color-btn-primary-text: #ffffff;
+
+  --color-btn-bg: #f9fafb;
+  --color-btn-hover-bg: #f3f4f6;
+  --color-btn-primary-bg: #2563eb;
+  --color-btn-primary-hover-bg: #1d4ed8;
+  --color-btn-primary-selected-bg: #1e40af;
+
+
+
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
   --color-prettylights-syntax-entity: #8250df;
@@ -30,8 +46,8 @@ main {
   --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
   --color-prettylights-syntax-constant-other-reference-link: #0a3069;
 
-  --color-btn-text: #24292f;
-  --color-btn-bg: #f9fafb;
+  /* --color-btn-text: #24292f; */
+  --color-btn-bg: #0a0b0c;
   --color-btn-border: rgb(31 35 40 / 15%);
   --color-btn-shadow: 0 1px 0 rgb(31 35 40 / 4%);
   --color-btn-inset-shadow: inset 0 1px 0 rgb(255 255 255 / 25%);
@@ -41,8 +57,8 @@ main {
   --color-btn-active-border: rgb(31 35 40 / 15%);
   --color-btn-selected-bg: #f3f4f6;
 
-  --color-btn-primary-text: #fff;
-  --color-btn-primary-bg: #2563eb;
+  /* --color-btn-primary-text: #131010; */
+  /* --color-btn-primary-bg: #2563eb; */
   --color-btn-primary-border: rgb(31 35 40 / 15%);
   --color-btn-primary-shadow: 0 1px 0 rgb(31 35 40 / 10%);
   --color-btn-primary-inset-shadow: inset 0 1px 0 rgb(255 255 255 / 3%);
@@ -58,9 +74,9 @@ main {
   --color-segmented-control-bg: #e5e7eb;
   --color-segmented-control-button-bg: #fff;
   --color-segmented-control-button-selected-border: #d1d5db;
-  --color-fg-default: #111827;
-  --color-fg-muted: #4b5563;
-  --color-fg-subtle: #9ca3af;
+  /* --color-fg-default: #111827; */
+  /* --color-fg-muted: #4b5563; */
+  /* --color-fg-subtle: #9ca3af; */
 
   --color-canvas-default: #fff;
   --color-canvas-overlay: #fff;
@@ -109,6 +125,7 @@ main .gsc-comment-box-tabs button {
   padding-top: 0.35rem!important;
   padding-inline-end: 0.65rem!important;
   padding-inline-start: 0.65rem!important;
+  color :var(--color-accent-emphasis)
 }
 main .gsc-comment .gsc-comment-box-tabs {
   border-radius: 0.75rem 0.75rem 0 0;
@@ -137,6 +154,9 @@ main .gsc-reply-box {
 main .gsc-replies {
   background: none;
   padding-top: 0;
+}
+main .gsc-comments-count{
+  color: var(--color-accent-emphasis);
 }
 main .pagination-loader-container {
   background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line.svg");

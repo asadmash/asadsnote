@@ -1,3 +1,7 @@
-/*
-Access-Control-Allow-Origin: https://giscus.app
+/assets/giscus-tailwind-light.css
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET
 
+/assets/giscus-tailwind-dark.css
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET
