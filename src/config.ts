@@ -153,7 +153,7 @@ const config: Config = {
       repoId: 'R_kgDOPOxLNA',
       category: 'General',
       categoryId: 'DIC_kwDOPOxLNM4CtJgq',
-      mapping: 'url',
+      mapping: 'pathname',
       reactionsEnabled: '1',
       emitMetadata: '0',
       inputPosition: 'top',
