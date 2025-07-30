@@ -60,7 +60,7 @@ const {
     { typeof readingTime === 'number' && <span class='flex items-center'><IconTimeFill className='mr-1' />{readingTime} minutes</span> }
   </div>
   <a href={url} class={twMerge(
-    'p-1 py-1 text-xl font-bold truncate md:text-2xl',
+    'p-1 py-1 text-xl font-bold md:text-2xl',
     shadow && 'drop-shadow-[0_2px_2px_rgba(0,0,0,.5)]'
   )}>{title}</a>
   <ScrollArea className='text-sm' hasThumb={false} client:visible>
