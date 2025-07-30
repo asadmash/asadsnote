@@ -2,7 +2,7 @@
 title: Simplifying Authentication in Next.js with Better Auth; A Modern, Type-Safe Approach
 date: 2025-07-30T16:00:00Z
 # updateDate: 2023-12-28
-tags: [Authentication, BetterAuth, Next.JS]
+tags: [Authentication, BetterAuth, NextJS]
 category: [Programming, Auth]
 wordCount: 793
 image: ./cover.png
