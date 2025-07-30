@@ -5,7 +5,7 @@ date: 2025-07-30T16:00:00Z
 tags: [Authentication, BetterAuth, NextJS]
 category: [Programming, Auth]
 wordCount: 793
-image: ./cover.png
+image: ./cover.jpg
 ---
 
 ## Introduction
