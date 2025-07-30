@@ -5,7 +5,7 @@ date: 2025-07-30T16:00:00Z
 tags: [Authentication, BetterAuth, Next.JS]
 category: [Programming, Auth]
 wordCount: 793
-image: ./cover.jpg
+image: ./cover.png
 ---
 
 #
@@ -121,12 +121,14 @@ GOOGLE_CLIENT_SECRET=your-client-secret
 - Create a free account at [Zeta](https://zeta.io/).
 - Generate API credentials and add to `.env`.
 - Install CLI:
+
   ```bash
   npm install -g @zeta.io/cli
   zeta o login
   zeta init
 
   ```
+
 - Move generated `zeta.ts` to your project root.
 
 ### 🧱 Drizzle ORM
