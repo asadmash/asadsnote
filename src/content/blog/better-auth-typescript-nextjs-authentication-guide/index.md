@@ -8,8 +8,6 @@ wordCount: 793
 image: ./cover.png
 ---
 
-#
-
 ## Introduction
 
 Authentication is a core pillar of any modern web application, but implementing it securely and scalably can often be a daunting task—especially when juggling social logins, session handling, database integration, and evolving best practices. Enter **Better Auth**, a **TypeScript-first** authentication and authorization library designed specifically for modern web stacks like **Next.js**. In this article, we’ll dive deep into Better Auth—from its core concepts to practical integration steps, along with its advantages and potential caveats.
