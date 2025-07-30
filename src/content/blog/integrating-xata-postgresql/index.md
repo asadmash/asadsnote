@@ -1,5 +1,5 @@
 ---
-title: Integrating Xata PostgreSQL A Modern Take on Serverless Relational Databases
+title: Integrating Xata PostgreSQL ; A Modern Take on Serverless Relational Databases
 date: 2025-07-30T16:00:00Z
 # updateDate: 2023-12-28
 description: When building modern web applications, choosing the right database can make or break your development workflow. In one of my recent projects, I explored Xata as a database solution, particularly its PostgreSQL foundation. The experience was smooth, productive, and packed with thoughtful features that helped me move faster without sacrificing power. This blog post is a complete walkthrough from setting up Xata to integrating it with your project—plus, we’ll explore what makes Xata, built on top of PostgreSQL, so special.
